@@ -1,22 +1,22 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonHeader, IonPage } from '@ionic/react';
 import './Home.css';
+import illu from '../assets/illustration.png';
 
 const Home: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Blank</IonTitle>
-        </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
         </IonHeader>
-        <ExploreContainer />
+        <div className='page'>
+        <img src={illu} alt="" className='illustration' />
+        <div className="body">
+          <h1 className='title'>Hey, Anonymous.<br/>Ou vas-tu ?</h1>
+
+          <input type="text" className='input-text' placeholder='Votre destination' />
+          <input type="text" className='input-text' placeholder="D'où pars tu ?" />
+        </div>
+        </div>
       </IonContent>
     </IonPage>
   );

@@ -1,0 +1,88 @@
+.account-slide{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100vw - 60px);
+    border-radius: 25px 25px 0px 0px;
+    background: #DEDEDE;
+    box-shadow: 0px -3px 14px 0px rgba(0, 0, 0, 0.25);
+    padding-inline: 30px;
+}
+
+.not-logged h1 {
+    color: #000;
+    font-family: "Space Grotesk";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.not-logged input {
+    width: calc(100% - 50px);
+    height: 50px;
+    padding-inline: 25px;
+    border-radius: 58px;
+    background: #E1E2E3;
+    box-shadow: 2px 5px 10.1px 0px rgba(0, 0, 0, 0.30) inset;
+    border: none;
+    margin-bottom: 22px;
+
+    color: #000;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.not-logged input::placeholder {
+    color: #434343;
+}
+
+.not-logged input:focus {
+    outline: none;
+}
+
+.not-logged .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 90px;
+}
+
+.not-logged .buttons .create{
+    width: 45%;
+    height: 50px;
+
+    border-radius: 58px;
+    border: none;
+    background: #E1E2E3;
+    box-shadow: 2px 5px 10.1px 0px rgba(0, 0, 0, 0.30);
+
+    color: #434343;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.not-logged .buttons .connexion{
+    width: 45%;
+    height: 50px;
+
+    border-radius: 58px;
+    border: none;
+    background: linear-gradient(291deg, #59B5FF 28.08%, #4B98E6 71.92%);
+    box-shadow: 2px 5px 10.1px 0px rgba(0, 0, 0, 0.30);
+
+    color: #FFF;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}

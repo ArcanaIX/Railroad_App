@@ -8,9 +8,18 @@ interface isLoggedObject {
 
 const accountSlide: ReactComponentOrElement = (props: isLoggedObject) => {
     console.log(props)
+
+    const cardRenderer: any = () => {
+        if (props.isLogged) {
+            return isLog()
+        }else {
+            return isNotLog()
+        }
+    }
+
     const isLog = () : ReactComponentOrElement => {
         return (
-            <div>
+            <div className="logged">
 
             </div>
         )
@@ -18,15 +27,28 @@ const accountSlide: ReactComponentOrElement = (props: isLoggedObject) => {
 
     const isNotLog = () : ReactComponentOrElement => {
         return(
-            <div>
+            <div className="not-logged">
+                <h1>Compte</h1>
+
+                <input type="text" name="pseudo" id="pseudo" placeholder="Pseudonyme"/>
+                <input type="password" name="password" id="password" placeholder="Mot de passe" />
+
+                <div className="buttons">
+                    <button className="create">
+                        Créer
+                    </button>
+                    <button className="connexion">
+                        Connexion
+                    </button>
+                </div>
 
             </div>
         )
     }
 
     return (
-        <div className="account">
-            {props.isLogged.toString()}
+        <div className="account-slide">
+            {cardRenderer()}
         </div>
     )
 }

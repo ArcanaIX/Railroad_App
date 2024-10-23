@@ -94,3 +94,25 @@
     transform: translateY(-50%);
 
 }
+
+.userIcon {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    width: 60px;
+    aspect-ratio: 1;
+}
+
+.accountSlide {
+    position:absolute;
+    left: 0;
+    transition: all ease-in-out 0.5s;
+}
+
+.accountSlide.hide {
+    bottom: -400px;
+}
+
+.accountSlide.show {
+    bottom: 0;
+}

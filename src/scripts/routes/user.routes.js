@@ -1,10 +1,10 @@
-
+const URL = "http://canihaztorrentz.cloud:8081"
 
 const user = {
     login : async (pseudo, password) => {
         console.log(pseudo, password);
         
-        const req = await fetch("http://192.168.1.56:8081/api/v1/users/login", {
+        const req = await fetch(URL + "/api/v1/users/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

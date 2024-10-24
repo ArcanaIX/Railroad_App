@@ -7,8 +7,7 @@
 
 .page {
     background: #DEDEDE!important;
-    height: 100svh;
-    max-height: 100svh;
+    min-height: 100vh;
 }
 
 .illustration {
@@ -105,15 +104,19 @@
 }
 
 .accountSlide {
-    position:absolute;
+    position:fixed;
     left: 0;
     transition: all ease-in-out 0.5s;
 }
 
 .accountSlide.hide {
     bottom: -400px;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .accountSlide.show {
     bottom: 0;
+    opacity: 1;
+    pointer-events: all;
 }

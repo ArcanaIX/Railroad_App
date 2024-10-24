@@ -4,8 +4,11 @@ import illu from '../assets/illustration.png';
 import calendar from "../assets/calendar.svg";
 import userIcon from "../assets/user.svg"
 
-import {ChangeEvent, MouseEvent, SetStateAction, useState} from "react";
+import {ChangeEvent, MouseEvent, useState} from "react";
 import accountSlide from "../components/accountSlide";
+import trainCard from '../components/trainCard';
+import trainstation from "../scripts/routes/trainstation.routes.js";
+import train from "../scripts/routes/train.routes.js";
 
 const Home: React.FC = () => {
 
@@ -15,23 +18,38 @@ const Home: React.FC = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [isAccountOpen, setIsAccountOpen] = useState("hide");
   const [pseudo, setPseudo] = useState("Anonymous");
-  const [token, setToken] = useState("")
+  const [token, setToken] = useState("");
+  const [departureStation, setDepartureStation] = useState({});
+  const [arrivalStation, setArrivalStation] = useState({});
+  const [trains, setTrains] = useState([]);
 
 
-  const handleArrivalChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setArrival(e.target.value);
+  const handleArrivalChange = async (e: ChangeEvent<HTMLInputElement>) => {
+
+    const data = await trainstation.get(e.currentTarget.value, token);
+
+    setArrivalStation(data);
+
+    e.target.value = data.nameStation;
+
+    setArrival(data.nameStation);
   }
 
   const handleDepartureChange = async (e: ChangeEvent<HTMLInputElement>) => {
     
-    await setDeparture(e.target.value);
+    const data = await trainstation.get(e.currentTarget.value, token);
 
-    console.log(departure);
+    setDepartureStation(data);
+
+    e.target.value = data.nameStation;
+
+    setDeparture(data.nameStation);
     
   }
 
-  const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleDateChange = async (e: ChangeEvent<HTMLInputElement>) => {
     setDate(e.target.value);
+    const data = await train.get(departure, arrival, e.target.value)
   }
 
   const handleClickUser = (e: MouseEvent) => {
@@ -54,7 +72,7 @@ const Home: React.FC = () => {
   // @ts-ignore
   return (
     <IonPage>
-      <IonContent fullscreen scroll-y="false">
+      <IonContent fullscreen scroll-y="true">
         <IonHeader collapse="condense">
         </IonHeader>
         <div className='page'>
@@ -63,13 +81,21 @@ const Home: React.FC = () => {
         <div className="body">
           <h1 className='title'>Hey, {pseudo}.<br/>Où vas-tu ?</h1>
 
-          <input type="text" className='input-text' placeholder='Votre destination' onChange={(e) => handleArrivalChange(e)} />
-          <input type="text" className='input-text' placeholder="D'où pars tu ?" onChange={(e) => handleDepartureChange(e)}/>
+          <input type="text" className='input-text' placeholder='Votre destination' onBlur={(e) => handleArrivalChange(e)} />
+          <input type="text" className='input-text' placeholder="D'où pars tu ?" onBlur={(e) => handleDepartureChange(e)}/>
 
           <div className="input-w-icon">
-            <input type="date" className={"input-date"}  onChange={handleDateChange}/>
+            <input type="time" className={"input-date"}  onBlur={handleDateChange}/>
             <img src={calendar} alt={""} className="input-icon"/>
           </div>
+
+          {
+            trainCard({
+              "stationStart": "Gare de Beziers",
+              "stationEnd": "Gare de Montpellier",
+              "departure":"08:45",
+            })
+          }
 
           <div className={"accountSlide " + isAccountOpen}>
           {

@@ -1,0 +1,83 @@
+.trainCard {
+    margin-top: 46px;
+    width: calc(100% - 24px);
+    padding-inline: 12px;
+    padding-top: 14px;
+    padding-bottom: 16px;
+
+    border-radius: 15px;
+    background: #DEDEDE;
+    box-shadow: -20px -20px 43px 0px #FFF, 20px 20px 43px 0px #BDBDBD;
+}
+
+.trainCard .top{
+    display: flex;
+}
+
+.trainCard .top img {
+    width: 48px;
+    aspect-ratio: 1;
+}
+
+.trainCard .top .right .little, .trainCard .little {
+    color: #000;
+    font-family: "Space Grotesk";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.trainCard .top .right .normal, .trainCard .normal {
+    color: #000;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 0;
+    margin: 0
+}
+
+.trainCard .top .right .from {
+    margin-left: 9px;
+}
+
+.trainCard .top .right .to {
+    margin-left: 19px;
+}
+
+.trainCard .top .right .from, .trainCard .top .right .to {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.trainCard .departure{
+    margin-left: calc(31px - 12px);
+    display: flex;
+    gap: 10px;
+    align-items: end;
+    margin-top: 10px;
+}
+
+.trainCard .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.trainCard .bottom button {
+    border: none;
+    padding-inline: 18px;
+    padding-block: 3px;
+    border-radius: 5px;
+    background: #138510;
+
+    color: #FFF;
+    font-family: "Space Grotesk";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
